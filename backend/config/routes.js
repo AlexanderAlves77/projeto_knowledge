@@ -1,3 +1,5 @@
+const { get } = require("express/lib/response")
+const { process_params } = require("express/lib/router")
 const admin = require("./admin")
 
 module.exports = app => {
@@ -44,4 +46,8 @@ module.exports = app => {
     app.route("/categories/:id/articles")
         .all(app.config.passport.authenticate())
         .get(app.api.article.getByCategory)
+
+    app.route("/stats")
+        .all(app.config.passport.authenticate())
+        .get(app.api.stat.get)
 }
