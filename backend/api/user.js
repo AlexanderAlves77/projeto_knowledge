@@ -19,9 +19,10 @@ module.exports = app => {
             existsOrError(user.confirmPassword, 'Confirmação de Senha inválida')
             equalsOrError(user.password, user.confirmPassword, 'Senhas não conferem')
             
-            const userFromDB = await app.db('users').where({ email: user.email }).first()
+            const userFromDB = await app.db('users')
+                .where({ email: user.email }).first()
 
-            if (user.id) {
+            if (!user.id) {
                 notExistsOrError(userFromDB, 'Usuário já cadastrado')
             }
 
@@ -53,7 +54,14 @@ module.exports = app => {
             .catch(err => res.status(500).send(err))
     }
 
+    const getById = (req, res) => {
+        app.db('users')
+            .select('id', 'name', 'email', 'admin')
+            .where({ id: req.params.id }) 
+            .first()
+            .then(user => res.json(user))
+            .catch(err => res.status(500).send(err))
+    }
     
-    
-    return { save, get }
+    return { save, get, getById }
 }
