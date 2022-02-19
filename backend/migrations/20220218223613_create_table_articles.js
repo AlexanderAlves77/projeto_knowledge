@@ -7,8 +7,8 @@ exports.up = function(knex, Promise) {
         table.string('imageUrl', 1000)
         table.binary('content').notNull()
         table.integer('userId').references('id')
-            .inTable('users').notNull()
-        table.integer('categoryId').references('id')
+            .inTable('users').unsigned().notNull()
+        table.integer('categoryId').unsigned().references('id')
             .inTable('categories').notNull()
     })
 }
