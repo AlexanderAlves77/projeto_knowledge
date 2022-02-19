@@ -1,15 +1,15 @@
 module.exports  =  {      
-    client : 'mysql2' , 
-      connection : { 
-        database : 'knowledge' , 
-        user : 'root' , 
-        password : 'rska2022' 
+    client: 'mysql2', 
+      connection: { 
+        database: 'knowledge', 
+        user: 'root', 
+        password: 'rska2022' 
       }, 
-      pool : { 
-        min : 2 , 
-        max : 10 
+      pool: { 
+        min: 2, 
+        max: 10 
       }, 
-      migrações: { 
-        tableName : 'knex_migrations' 
+      migrations: { 
+        tableName: 'knex_migrations' 
     } 
 } 
