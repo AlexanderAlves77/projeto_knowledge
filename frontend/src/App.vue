@@ -1,6 +1,7 @@
 <template>
 	<div id="app" :class="{'hide-menu': !isMenuVisible}">
-		<Header title="Fullstack - Base Conhecimento" :hideToggle="false" />
+		<Header title="Fullstack - Base Conhecimento" 
+			:hideToggle="false" :hideUserDropdown="false" />
 		<Menu />
 		<Content />
 		<Footer />
