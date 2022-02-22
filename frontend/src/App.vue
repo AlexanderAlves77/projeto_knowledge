@@ -1,6 +1,6 @@
 <template>
 	<div id="app">
-		<Header />
+		<Header title="Fullstack - Base Conhecimento" :hideToggle="false" />
 		<Menu />
 		<Content />
 		<Footer />
